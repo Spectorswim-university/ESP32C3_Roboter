@@ -30,9 +30,9 @@ uint8_t const PROGMEM RemoteXY_CONF_PROGMEM[] =   // 109 bytes V19
 struct {
 
     // input variables
-  int8_t linearSpeed; // from -100 to 100
   int8_t angularSpeed; // from -100 to 100
-  uint8_t position; // from 0 to 1
+  int8_t linearSpeed; // from -100 to 100
+  uint8_t position; // from 0 to 2
   uint8_t sensorsON; // =1 if state is ON, else =0, from 0 to 1
 
     // output variables
