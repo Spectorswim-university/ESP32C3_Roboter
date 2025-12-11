@@ -14,7 +14,7 @@ int16_t Movement::speedCalculation(int8_t x)
 {
   int8_t ax = (x < 0) ? -x : x;
   int16_t sign = (x < 0) ? -1 : 1;
-  int y;
+  int y = 0;
 
   if(ax <= SPEED_CURVE)
     y = (127 * ax + SPEED_CURVE / 2) / SPEED_CURVE;
