@@ -13,7 +13,7 @@ constexpr int REVERSE_SPEED = 255;
 int16_t Movement::speedCalculation(int8_t x)
 {
   int8_t ax = (x < 0) ? -x : x;
-  int16_t sign = (x < 0) ? -1 : 1;
+  int16_t sign = (x < 0) ? 1 : -1;
   int y = 0;
 
   if(ax <= SPEED_CURVE)
@@ -82,8 +82,8 @@ void Movement::processRemoteXYInput()
     } 
     
     // slows down the turning side and speeds up the other
-    leftSpeed  = linearSpeed - angularSpeed;
-    rightSpeed = linearSpeed + angularSpeed;
+    leftSpeed  = linearSpeed + angularSpeed;
+    rightSpeed = linearSpeed - angularSpeed;
     // Note: values may exceed the -255..255 range here,
     // but Motor::write() will internally clamp them,
     // so no explicit constrain() is required.
@@ -95,8 +95,8 @@ void Movement::processRemoteXYInput()
 
 void Movement::performEscapeMove(int8_t& direction)
 {
-  if (direction = 0) return;
-  if(direction > 0)
+  if (direction == 0) return;
+  if(direction < 0)
   {      
     m_left.write(-REVERSE_SPEED);
     m_right.write(-REVERSE_SPEED);
