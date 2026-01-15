@@ -109,13 +109,13 @@ void Movement::performEscapeMove(int8_t& direction)
   if (direction == 0) return;
   if(direction < 0)
   {      
-    m_left.write(-REVERSE_SPEED);
-    m_right.write(-REVERSE_SPEED);
+    m_left.write(REVERSE_SPEED);
+    m_right.write(REVERSE_SPEED);
   }
   else
   {
-    m_left.write(REVERSE_SPEED);
-    m_right.write(REVERSE_SPEED);
+    m_left.write(-REVERSE_SPEED);
+    m_right.write(-REVERSE_SPEED);
   }
 }
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
