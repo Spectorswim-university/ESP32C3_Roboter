@@ -58,12 +58,20 @@ void Movement::processRemoteXYInput()
   // In-place rotation
   if ((inputMove >= 0 ? inputMove : -inputMove) <= LOW_SPEED_TO_INPLACE && angularSpeed != 0)
   {
-    leftSpeed  =  angularSpeed;
-    rightSpeed = -angularSpeed;
+    //leftSpeed  =  angularSpeed;
+    //rightSpeed = -angularSpeed;
+    if(inputTurn > 0)
+    {
+      leftSpeed = angularSpeed;
+    }
+    else
+    {
+      rightSpeed = -angularSpeed;
+    }
   }
   else
   {
-    double preciseControl = ( inputMove > 0 ? 1.0 : -1.0 ) + (inputMove / 100.0) * 3.0;
+    double preciseControl = ( inputMove > 0 ? 1.0 : -1.0 ) + (inputMove / 100.0) * 5.0;
     angularSpeed /= preciseControl;  // because more precise control is required while driving
 
     if (linearSpeed > 0) 
